@@ -17,16 +17,17 @@
 
     {% with comments.count as total_comments %}
         <h2>
-            {{ total_comments }} comment {{ total_comments|pluralize }}
+            {{ total_comments }} comment{{ total_comments|pluralize }}
         </h2>
     {% endwith %}
     {% for comment in comments %}
-        <div class="comment">
-            <p class="info">
+        <div class="comment" style="color: #0F0F0F; font-family: Verdana, sans-serif;">
+            <p class="info" style="color: #515151">
                 Comment {{ forloop.counter }} by {{ comment.name }}
                 {{comment.created}}
             </p>
-            {{ comment.body|linebreaks }}
+                {{ comment.body|linebreaks }}
+
         </div>
     {% empty %}
         <p>There is no comments yet.</p>
@@ -36,12 +37,15 @@
         <h2>Your comment has been added</h2>
     {% else %}
         <h2>Add a new comment</h2>
-        <form method="post" style="background-color: #5f5f79">
+        <form method="post" style="background-color: #5f5f79; color: #DDE4EB;">
+            <div class="comment_form">
             {{comment_form.as_p}}
+            </div>
             {% csrf_token %}
             <p>
                 <input type="submit" value="Add comment">
             </p>
+
         </form>
     {% endif %}
 {% endblock %}

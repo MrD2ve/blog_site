@@ -108,3 +108,7 @@ input[type=submit] {
 .post:hover {
     background-color: #51515b;
 }
+
+.comment_form > p > label {
+    color: #5F5F79;
+}
